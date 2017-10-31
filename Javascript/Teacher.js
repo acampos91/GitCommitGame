@@ -13,13 +13,13 @@ this.ctx.fillRect(this.x, this.y, this.width, this.height);
 }
 
   Teacher.prototype.moveLeft =  function() {
-    if (this.x > 0 && this.x < 1000){
-    this.x -= 300;
+    if (this.x > 200){
+    this.x -= 1; //255
   }
 };
   Teacher.prototype.moveRight = function() {
-    if (this.x > 0 && this.x < 1000){
-    this.x += 300;
+    if (this.x < 880){
+    this.x += 1; //255
   };
 }
 
