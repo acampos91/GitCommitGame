@@ -14,15 +14,19 @@ this.ctx.fillRect(this.x, this.y, this.width, this.height);
 
   Teacher.prototype.moveLeft =  function() {
     if (this.x > 200){
-    this.x -= 1; //255
+    this.x -= 255;
   }
 };
   Teacher.prototype.moveRight = function() {
     if (this.x < 880){
-    this.x += 1; //255
+    this.x += 255;
   };
 }
 
 Teacher.prototype.shoot = function (){
-
+  if(cd) {  
+  iterations = new Iterations(15, 15, teacher.x, teacher.y, myGameArea.ctx, "black");
+}
+iterations.move();
+iterations.draw();
 };

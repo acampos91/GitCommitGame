@@ -1,15 +1,17 @@
-function Iterations(width, height, color, x, y) {
+function Iterations(width, height, x, y, ctx, color) {
     this.width = width;
     this.height = height;
-    this.x = x;
-    this.y = y;
-    this.iterations = function(){
-    var ctx = canvas.getContext('2d');
-    ctx.fillStyle = color;
-      ctx.fillRect(this.x, this.y, this.width, this.height);
-   }
+    this.x = x + 7;
+    this.y = y - 20;
+    this.ctx = ctx;
+    this.color = color;
 }
 
-Teacher.prototype.attack = function (){
+Iterations.prototype.draw = function (){
+ this.ctx.fillStyle = this.color;
+ this.ctx.fillRect(this.x, this.y, this.width, this.height);
+};
 
+Iterations.prototype.move = function (){
+ this.y -= 7;
 };
