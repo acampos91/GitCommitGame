@@ -1,22 +1,23 @@
-function Student(width, height, x, y, ctx, color, health) {
+function Student(x, y, ctx, health, speed) {
     var randomStudentsPositionX = [130, 385, 640, 895];
-    this.width = width;
-    this.height = height;
+    this.width = 60;
+    this.height = 100;
     this.x =  randomStudentsPositionX[Math.floor(Math.random() * ((randomStudentsPositionX.length - 0) + 0))];
     this.y = y;
     this.ctx = ctx;
-    this.color = color;
     this.health = health;
+    this.speed = speed;
    }
 
 Student.prototype.draw = function(){
-this.ctx.fillStyle = this.color;
-this.ctx.fillRect(this.x, this.y, this.width, this.height);
+  var img = new Image();
+  img.src = "../images/fresijuego.png"
+  this.ctx.drawImage(img, this.x, this.y, 60, 100);
 }
 
 Student.prototype.move = function (){
  if (this.y < 470){
- this.y += 7;
+  this.y += this.speed;
  }
 };
 

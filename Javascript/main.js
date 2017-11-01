@@ -8,20 +8,20 @@ $(document).ready(function() {
   myGameArea = new GameArea("green");
   teacher = new Teacher(30, 30, 385, 600, myGameArea.ctx, "red");
 
-  myGameArea.draw();
-  teacher.draw();
+  myGameArea.update();
 
   setInterval(function() {
     if (myGameArea.counter < 15) {
-      randomStudents.push(new Student(30, 30, this.x, 0, myGameArea.ctx, "blue", 1));
+      randomStudents.push(new Student(this.x, 0, myGameArea.ctx, 1, 7));
       myGameArea.counter += 1;
-      console.log(randomStudents)
-    } else if (randomStudents.length === 0 && myGameArea.counter < 24) {
-      randomStudents.push(new Student(30, 30, this.x, 0, myGameArea.ctx, "yellow", 3));
+    } else if (randomStudents.length === 0 && myGameArea.counter < 23) {
+      randomStudents.push(new Student(this.x, 0, myGameArea.ctx, 3, 5));
+      myGameArea.counter += 1;
+      randomStudents.push(new Student(this.x, 0, myGameArea.ctx, 3, 5));
+      myGameArea.counter += 1;
+      randomStudents.push(new Student(this.x, 0, myGameArea.ctx, 3, 5));
       myGameArea.counter += 1;
     }
-
-
   }, 1000)
 
   setInterval(function() {
@@ -71,8 +71,8 @@ function crash() {
       if (crashWith(randomStudents[j], arrayIterations[i])) {
         arrayIterations.splice(i, 1);
         randomStudents[j].health -= 1;
+        console.log(randomStudents[j].health);
         if (randomStudents[j].health === 0){
-          console.log(randomStudents[j].health)
           randomStudents.splice(j, 1);
           return;
         }
