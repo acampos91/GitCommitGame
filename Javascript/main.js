@@ -12,10 +12,16 @@ $(document).ready(function() {
   teacher.draw();
 
   setInterval(function() {
-    if(myGameArea.counter < 15){
-    randomStudents.push(new Student(30, 30, this.x, 0, myGameArea.ctx, "blue"));
-    myGameArea.counter += 1;
+    if (myGameArea.counter < 15) {
+      randomStudents.push(new Student(30, 30, this.x, 0, myGameArea.ctx, "blue", 1));
+      myGameArea.counter += 1;
+      console.log(randomStudents)
+    } else if (randomStudents.length === 0 && myGameArea.counter < 24) {
+      randomStudents.push(new Student(30, 30, this.x, 0, myGameArea.ctx, "yellow", 3));
+      myGameArea.counter += 1;
     }
+
+
   }, 1000)
 
   setInterval(function() {
@@ -31,8 +37,8 @@ $(document).ready(function() {
         teacher.moveRight();
         break;
       case 32:
-         teacher.shoot();
-         break;
+        teacher.shoot();
+        break;
     }
   });
 });
@@ -50,22 +56,27 @@ function studentsDraw() {
     randomStudents[i].draw();
   }
 }
-function crashWith(student,iterations){
-  return !((student.bottom() < iterations.top())    ||
-           (student.top()    > iterations.bottom()) ||
-           (student.right()  < iterations.left())   ||
-           (student.left()   > iterations.right()))
+
+function crashWith(student, iterations) {
+  return !((student.bottom() < iterations.top()) ||
+    (student.top() > iterations.bottom()) ||
+    (student.right() < iterations.left()) ||
+    (student.left() > iterations.right()))
 
 }
 
 function crash() {
-  for(j = 0; j < randomStudents.length; j++){
+  for (j = 0; j < randomStudents.length; j++) {
     for (i = 0; i < arrayIterations.length; i++) {
-        if (crashWith(randomStudents[j], arrayIterations[i])) {
-          arrayIterations.splice(i,1);
-          randomStudents.splice(j,1)
-            return;
-          }
+      if (crashWith(randomStudents[j], arrayIterations[i])) {
+        arrayIterations.splice(i, 1);
+        randomStudents[j].health -= 1;
+        if (randomStudents[j].health === 0){
+          console.log(randomStudents[j].health)
+          randomStudents.splice(j, 1);
+          return;
         }
+      }
     }
+  }
 }

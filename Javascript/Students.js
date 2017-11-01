@@ -1,4 +1,4 @@
-function Student(width, height, x, y, ctx, color) {
+function Student(width, height, x, y, ctx, color, health) {
     var randomStudentsPositionX = [130, 385, 640, 895];
     this.width = width;
     this.height = height;
@@ -6,6 +6,7 @@ function Student(width, height, x, y, ctx, color) {
     this.y = y;
     this.ctx = ctx;
     this.color = color;
+    this.health = health;
    }
 
 Student.prototype.draw = function(){
