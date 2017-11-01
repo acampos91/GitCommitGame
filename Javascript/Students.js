@@ -3,7 +3,7 @@ function Student(width, height, x, y, ctx, color) {
     this.width = width;
     this.height = height;
     this.x =  randomStudentsPositionX[Math.floor(Math.random() * ((randomStudentsPositionX.length - 0) + 0))];
-    this.y = y;  
+    this.y = y;
     this.ctx = ctx;
     this.color = color;
    }
@@ -18,3 +18,11 @@ Student.prototype.move = function (){
  this.y += 7;
  }
 };
+
+Student.prototype.left = function(){ return this.x }
+
+Student.prototype.right = function(){  return this.x + this.width  }
+
+Student.prototype.top = function(){  return this.y }
+
+Student.prototype.bottom = function(){ return this.y + this.height }

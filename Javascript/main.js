@@ -2,7 +2,8 @@ var randomStudents = [];
 var myGameArea;
 var teacher;
 var iterations;
-var cd = false;
+var arrayIterations = [];
+
 $(document).ready(function() {
   myGameArea = new GameArea("green");
   teacher = new Teacher(30, 30, 385, 600, myGameArea.ctx, "red");
@@ -30,19 +31,41 @@ $(document).ready(function() {
         teacher.moveRight();
         break;
       case 32:
-        cd = true;
          teacher.shoot();
-         cd = false;
          break;
     }
   });
 });
 
-
+function iterationsDraw() {
+  for (i = 0; i < arrayIterations.length; i++) {
+    arrayIterations[i].move();
+    arrayIterations[i].draw();
+  }
+}
 
 function studentsDraw() {
   for (i = 0; i < randomStudents.length; i++) {
     randomStudents[i].move();
     randomStudents[i].draw();
   }
+}
+function crashWith(student,iterations){
+  return !((student.bottom() < iterations.top())    ||
+           (student.top()    > iterations.bottom()) ||
+           (student.right()  < iterations.left())   ||
+           (student.left()   > iterations.right()))
+
+}
+
+function crash() {
+  for(j = 0; j < randomStudents.length; j++){
+    for (i = 0; i < arrayIterations.length; i++) {
+        if (crashWith(randomStudents[j], arrayIterations[i])) {
+          arrayIterations.splice(i,1);
+          randomStudents.splice(j,1)
+            return;
+          }
+        }
+    }
 }

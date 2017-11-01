@@ -22,5 +22,6 @@ GameArea.prototype.draw = function (){
         this.draw();
         teacher.draw();
         studentsDraw();
-        teacher.shoot();
+        iterationsDraw();
+        crash();  
   }

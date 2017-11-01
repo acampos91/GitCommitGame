@@ -24,9 +24,6 @@ this.ctx.fillRect(this.x, this.y, this.width, this.height);
 }
 
 Teacher.prototype.shoot = function (){
-  if(cd) {  
   iterations = new Iterations(15, 15, teacher.x, teacher.y, myGameArea.ctx, "black");
-}
-iterations.move();
-iterations.draw();
+  arrayIterations.push(new Iterations(15, 15, teacher.x, teacher.y, myGameArea.ctx, "black"));
 };
