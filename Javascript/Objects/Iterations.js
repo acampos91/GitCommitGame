@@ -1,4 +1,4 @@
-function Iterations(width, height, x, y, ctx, color) {
+  function Iterations(width, height, x, y, ctx, color) {
     this.width = width;
     this.height = height;
     this.x = x + 7;
