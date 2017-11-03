@@ -55,7 +55,7 @@ function level2 (){
   var random = Math.floor(Math.random() * images.length);
   newGame.frames += 1;
   if (newGame.frames % 17 === 0) {
-    if (newGame.counter < 4) {
+    if (newGame.counter < 7) {
       newGame.randomStudents.push(new Student(this.x, newGame.ctx, 3, 8, images[random]));
       newGame.counter += 1;
     }

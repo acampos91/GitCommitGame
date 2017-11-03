@@ -27,6 +27,6 @@ Teacher.prototype.draw = function(){
 
 Teacher.prototype.shoot = function (){
   newGame.arrayIterations.push(new Iterations(15, 15, this.x, this.y, newGame.ctx, "black"));
-  audio = new Audio("Sounds/shoot.mp3");
+  audio = new Audio("sounds/shoot.mp3");
   audio.play();
 };
