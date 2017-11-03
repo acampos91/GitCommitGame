@@ -58,7 +58,7 @@ Game.prototype.crashWith = function (student, iterations){
 Game.prototype.studentsDraw = function (){
   for (i = 0; i < this.randomStudents.length; i++) {
     this.randomStudents[i].move();
-    if (this.randomStudents[i].y >= 399 && this.player.health > 0) {
+    if (this.randomStudents[i].y === 399 && this.player.health > 0) {
       audio = new Audio("Sounds/ending.mp3");
       audio.play();
       this.randomStudents.splice(i,1);

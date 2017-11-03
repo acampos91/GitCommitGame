@@ -36,7 +36,30 @@
   font-size: 20px;
   margin-left: 213px;
 }
-
+.level1{
+  height: 50px;
+  width: 150px;
+  border-radius: 10px;
+  background: green;
+  color: black;
+  border-color: black;
+  font-family: Verdana;
+  position: relative;
+  left: -156px;
+  top: -22px;
+}
+.level2{
+  height: 50px;
+  width: 150px;
+  border-radius: 10px;
+  background: green;
+  color: black;
+  border-color: black;
+  font-family: Verdana;
+  position: relative;
+  left: 210px;
+  top: -7px;
+}
 
 .game {
   width: 1080px;
@@ -105,7 +128,6 @@ canvas {
   top: 94px;
 }
 .level2{
-  display: none;
 background: url("../images/level2.jpg");
 height: 720px;
 width: 1080px;
@@ -117,9 +139,13 @@ right: 0;
 margin: auto;
 }
 
+.level2 img{
+  margin-left: 50px;
+  margin-bottom: 50px;
+}
 .level2 h1{
   font-size: 200px;
   text-align: center;
-  color: grey;
+  color: white;
   font-family: Verdana;
 }

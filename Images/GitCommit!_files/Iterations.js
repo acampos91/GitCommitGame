@@ -16,10 +16,10 @@ Iterations.prototype.move = function (){
  this.y -= 7;
 };
 
-Iterations.prototype.left = function(){ return this.x; };
+Iterations.prototype.left = function(){ return this.x; }
 
-Iterations.prototype.right = function(){  return this.x + this.width;  };
+Iterations.prototype.right = function(){  return this.x + this.width;  }
 
-Iterations.prototype.top = function(){  return this.y; };
+Iterations.prototype.top = function(){  return this.y; }
 
-Iterations.prototype.bottom = function(){ return this.y + this.height; };
+Iterations.prototype.bottom = function(){ return this.y + this.height; }
